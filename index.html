@@ -14,8 +14,86 @@
 </head>
 
 <body>
+    <aside>
+        <img src="./img/Logo.svg" alt="CodeConnect logo">
+        <nav>
+            <ul class="links-list">
+                <li>
+                    <a href="#" class="link-emphasis">Publicar</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/feed.svg">
+                        Feed
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/account_circle.svg">
+                        Perfil
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/info.svg">
+                        Sobre nós
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/logout.svg">
+                        Sair
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
 
-    <script src="script.js"></script>
+    <main>
+        <div class="upload-image-container">
+            <div class="image-container">
+                <img src="./img/imagem1.png" alt="" class="main-image">
+            </div>
+
+            <button id="upload-button">Load image</button>
+            <input type="file" id="image-upload" accept="image/" style="display: none;">
+            
+            <div class="image-name-container">
+                <p>image_projeto.png</p>
+                <img src="./img/close.svg">
+            </div>
+        </div>
+
+        <div class="description-container">
+            <h2>New project</h2>
+            <form>
+                <div>
+                    <label for="name">Title</label>
+                    <input type="text" id="name" name="name" />
+                </div>
+                <div>
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description"></textarea>
+                </div>
+                <div>
+                    <label for="tags">Tags</label>
+                    <input type="text" id="tags" name="tags" />
+                </div>
+                <ul class="tags-list">
+                    <li>
+                        <p>Front-end</p>
+                        <img src="./img/close-black.svg">
+                    </li>
+                </ul>
+                <div class="buttons-container">
+                    <button class="discard-button">Discard</button>
+                    <button class="publish-button">Publish</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>

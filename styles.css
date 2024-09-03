@@ -240,3 +240,16 @@ textarea {
     color: var(--secondary-color);
     font-size: 15px;
 }
+
+.remove-tag {
+    cursor: pointer;
+}
+
+#error-message {
+    margin-top: 5px;
+    color: rgb(166, 0, 0);
+}
+
+.tag-container {
+    margin-right: 3px;
+}

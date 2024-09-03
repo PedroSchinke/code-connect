@@ -121,3 +121,19 @@ publishButton.addEventListener('click', async (event) => {
         console.log('deu errado:' + error);
     }
 })
+
+const discardButton = document.querySelector('.discard-button');
+
+discardButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const form = document.querySelector('form');
+    form.reset();
+
+    imageNameContainer.style.display = 'none';
+    mainImage.id = 'image-icon';
+    mainImage.src = './img/image-square-svgrepo-com.svg';
+    imageName.textContent = '';
+
+    tagsList.innerHTML = '';
+})

@@ -24,7 +24,8 @@ function readFileContent(file) {
 }
 
 const mainImage = document.querySelector('.main-image');
-const imageName = document.querySelector('.image-name-container p');
+const imageNameContainer = document.querySelector('.image-name-container');
+const imageName = imageNameContainer.querySelector('p');
 
 inputUpload.addEventListener('change', async (event) => {
     const file = event.target.files[0];
@@ -32,8 +33,10 @@ inputUpload.addEventListener('change', async (event) => {
     if (file) {
         try {
             const fileContent = await readFileContent(file);
+            imageNameContainer.style.display = 'flex'
             mainImage.src = fileContent.url;
             imageName.textContent = fileContent.name;
+            mainImage.id = '';
         } catch (error) {
             console.error('Error on reading file');
         }

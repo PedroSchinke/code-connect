@@ -189,12 +189,21 @@ textarea {
 }
 
 .image-container {
+    min-width: 400px;
+    width: fit-content;
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 368px;
     padding: 24px 16px;
     background-color: var(--secondary-color);
     border-radius: 8px;
+}
+
+#image-icon {
+    width: 100px;
+    height: 100px;
+    color: var(--text-color);
 }
 
 .main-image {

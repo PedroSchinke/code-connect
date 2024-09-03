@@ -68,23 +68,20 @@
             <h2>New project</h2>
             <form>
                 <div>
-                    <label for="name">Title</label>
-                    <input type="text" id="name" name="name" />
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" />
                 </div>
                 <div>
                     <label for="description">Description</label>
                     <textarea id="description" name="description"></textarea>
                 </div>
-                <div>
-                    <label for="tags">Tags</label>
-                    <input type="text" id="tags" name="tags" />
+                <div id="tags-input-container">
+                    <label for="tags-input">Tags</label>
+                    <input type="text" id="tags-input" name="tags-input" />
                 </div>
-                <ul class="tags-list">
-                    <li>
-                        <p>Front-end</p>
-                        <img src="./img/close-black.svg">
-                    </li>
-                </ul>
+
+                <ul class="tags-list"></ul>
+
                 <div class="buttons-container">
                     <button class="discard-button">Discard</button>
                     <button class="publish-button">Publish</button>
@@ -93,7 +90,7 @@
         </div>
     </main>
 
-    <script src="scripts.js"></script>
+    <script src="scripts.js" type="module"></script>
 </body>
 
 </html>

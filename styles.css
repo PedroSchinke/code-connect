@@ -31,7 +31,7 @@ body {
 aside {
     background-color: var(--items-background);
     border-radius: 10px;
-    height: 100%;
+    height: fit-content;
     padding: 40px 16px;
     text-align: center;
 }

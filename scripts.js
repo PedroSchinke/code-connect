@@ -48,9 +48,15 @@ const tagsList = document.querySelector('.tags-list');
 const tagsInputContainer = document.getElementById('tags-input-container');
 
 async function verifyAvailableTags(tag) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(availableTags.includes(tag))
+            if (availableTags.includes(tag)) {
+                resolve();
+            } else if (!availableTags.includes(tag)) {
+                reject('Tag unavailable');
+            } else {
+                reject('Error on verifying this tag');
+            }
         }, 500)
     })
 }
@@ -59,27 +65,20 @@ tagsInput.addEventListener('keypress', async (event) => {
     if (event.key === 'Enter') {
         event.preventDefault();
         const tag = tagsInput.value.trim();
-        console.log(verifyAvailableTags(tag));
 
         if (tag !== "") {
             try {
-                const availableTag = await verifyAvailableTags(tag);
+                await verifyAvailableTags(tag);
 
-                if (availableTag) {
-                    const newTag = document.createElement('li');
-                    newTag.classList.add('tag-container');
-                    newTag.innerHTML = `<p>${tag}</p> <img src="./img/close-black.svg" class="remove-tag">`
-                    tagsList.appendChild(newTag);
-                    tagsInput.value = '';
-                    document.getElementById('error-message')?.remove();
-                } else {
-                    return setErrorMessage('Não é possível inserir essa tag', tagsInputContainer);
-                }
+                const newTag = document.createElement('li');
+                newTag.classList.add('tag-container');
+                newTag.innerHTML = `<p>${tag}</p> <img src="./img/close-black.svg" class="remove-tag">`
+                tagsList.appendChild(newTag);
+                tagsInput.value = '';
+                document.getElementById('error-message')?.remove();
             } catch (error) {
-                console.error(error);
-                alert('Não foi possível fazer a verificação da tag');
+                setErrorMessage(error, tagsInputContainer);
             }
-            
         }
     }
 })
@@ -99,9 +98,9 @@ async function publishProject(projectName, projectDescription, projectTags) {
             const itWorked = Math.random() > 0.5;
 
             if (itWorked) {
-                resolve("Projeto publicado com sucesso.")
+                resolve("Project published successfully")
             } else {
-                reject("Erro ao publicar o projeto.")
+                reject("Error on publishing the project")
             }
         }, 500)
     })
@@ -116,9 +115,9 @@ publishButton.addEventListener('click', async (event) => {
 
     try {
         const result = await publishProject(projectTitle, projectDescription, projectTags);
-        console.log('deu certo');
+        console.log('It worked!');
     } catch (error) {
-        console.log('deu errado:' + error);
+        console.log("It didn't worked:" + error);
     }
 })
 
